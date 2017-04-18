@@ -1,0 +1,15 @@
+#random-number{
+	background: #ccc;
+	height: 140px;
+	width: 200px;
+	font-size: 50px;
+	text-align: center;
+	padding-top: 10px;
+}
+
+#user-score{
+	background: #999;
+
+	width: 240px;
+	height: 90px;
+}
