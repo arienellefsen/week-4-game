@@ -2,67 +2,73 @@
 var randomNumber = $("#random-number");
 var win = $("#win");
 var looses = $("#looses");
-var cristal1 = $("#cristal-01");
-var cristal2 = $("#cristal-02");
-var cristal3 = $("#cristal-03");
-var cristal4 = $("#cristal-04");
 var userScore = $("#user-score");
-var cristal01 = $("#cristal01");
 var imgCristalUrl = "./assets/images/cristal-0";
 var extension = '.png';
-var cristalImages = '', i;
+var cristalImages = '',
+    i;
 var imagestring = imgCristalUrl;
 var cValue;
+var result = [];
+var sum;
+var looseScore;
+var totalNumber;
 
 // 2- Generate Random number to match between 19 - 120
 function generateNumber(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+    return Math.floor(Math.random() * (max - min)) + min;
 }
-randomNumber.text(generateNumber(19,120));
+var numberGuess = generateNumber(19, 24)
+randomNumber.text(numberGuess);
 
 // 3 - Generate cristal
-function generateCristal(){	
-//debugger;
-	  for(i=1; i < 5; i++) {
-		cristalImages ='<img src='+imagestring+i+extension+' value = '+generateNumber(1, 12)+' id = '+i+'>';
- 		$('#cristals').append(cristalImages);
-		console.log(cristalImages);
-		};
+function generateCristal(cristalImages) {
+    //debugger;
+    for (i = 1; i < 5; i++) {
+        cristalImages = '<img src=' + imagestring + i + extension + ' value = ' + generateNumber(1, 12) + ' id = ' + i + '>';
+        $('#cristals').append(cristalImages);
+        console.log(cristalImages);
+    };
+    // 4 - Attached on click event on cristal		
+    $("img").on("click", function() {
+        cValue = $(this).attr('value');
+        result.push(cValue);
+        console.log(sum += result);
 
-		$("img").on( "click", function() {
- 			cValue = $(this).attr('value');
- 			var result = cValue;
+        scoreUser(result);
 
-			console.log(result);
+        //5 - Calculate user's score
+        //Everytime you user's click sum values
+        function scoreUser(result) {
+            for (i = 1, sum = 0; i < result.length; sum += result[i++]);
+            console.log(eval(result.join("+")));
+            totalNumber = eval(result.join("+"));
+            userScore.text(totalNumber);
 
-			scoreUser(result);
+            //6 - Create validation if user's click is equal to randon number
+            if (totalNumber == numberGuess) {
+                console.log("win");
+                var winScore = 1;
+                win.text("Win:" + winScore++);
+                resetGame();
 
+                //7-Call fucntion to reset the game and start a new one
 
-  		//Update score
-
-  		function scoreUser(cValue){
-
-  		console.log("Result:" + cValue);
-
-			
-
-  		}
-});
-
-		
+            } else {
+                console.log("Loose");
+            }
+        }
+    });
 };
 
-function notify(cristalImages){
-	alert("Click" + cristalImages.text);
+function resetGame() {
+    totalNumber = '';
+    userScore.text(totalNumber);
+    result = [];
+    randomNumber.text(totalNumber);
+    generateCristal(cristalImages);
 }
-
-
-	
-
-
-
-
+debugger;
+var numberGuess = generateNumber(19, 24)
+randomNumber.text(numberGuess);
 generateCristal();
-
-
-
