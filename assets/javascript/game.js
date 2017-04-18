@@ -12,7 +12,7 @@ var imgCristalUrl = "./assets/images/cristal-0";
 var extension = '.png';
 var cristalImages = '', i;
 var imagestring = imgCristalUrl;
-
+var cValue;
 
 // 2- Generate Random number to match between 19 - 120
 function generateNumber(min, max) {
@@ -22,16 +22,34 @@ randomNumber.text(generateNumber(19,120));
 
 // 3 - Generate cristal
 function generateCristal(){	
-debugger;
+//debugger;
 	  for(i=1; i < 5; i++) {
 		cristalImages ='<img src='+imagestring+i+extension+' value = '+generateNumber(1, 12)+' id = '+i+'>';
  		$('#cristals').append(cristalImages);
 		console.log(cristalImages);
 		};
 
-		$(this).on( "click", function() {
-  		alert($("img").attr( "src" ) );
+		$("img").on( "click", function() {
+ 			cValue = $(this).attr('value');
+ 			var result = cValue;
+
+			console.log(result);
+
+			scoreUser(result);
+
+
+  		//Update score
+
+  		function scoreUser(cValue){
+
+  		console.log("Result:" + cValue);
+
+			
+
+  		}
 });
+
+		
 };
 
 function notify(cristalImages){
