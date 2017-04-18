@@ -22,7 +22,7 @@ var numberGuess = generateNumber(19, 24)
 randomNumber.text(numberGuess);
 
 // 3 - Generate cristal
-function generateCristal(cristalImages) {
+function generateCristal() {
     //debugger;
     for (i = 1; i < 5; i++) {
         cristalImages = '<img src=' + imagestring + i + extension + ' value = ' + generateNumber(1, 12) + ' id = ' + i + '>';
@@ -34,7 +34,6 @@ function generateCristal(cristalImages) {
         cValue = $(this).attr('value');
         result.push(cValue);
         console.log(sum += result);
-
         scoreUser(result);
 
         //5 - Calculate user's score
@@ -48,8 +47,7 @@ function generateCristal(cristalImages) {
             //6 - Create validation if user's click is equal to randon number
             if (totalNumber == numberGuess) {
                 console.log("win");
-                var winScore = 1;
-                win.text("Win:" + winScore++);
+                //win.text("Win:" + winScore++);
                 resetGame();
 
                 //7-Call fucntion to reset the game and start a new one
@@ -65,10 +63,18 @@ function resetGame() {
     totalNumber = '';
     userScore.text(totalNumber);
     result = [];
-    randomNumber.text(totalNumber);
-    generateCristal(cristalImages);
+    var numberGuess = generateNumber(19, 24)
+    randomNumber.text(numberGuess);
+    $('#cristals').text('');
+    var winScore;
+    win.text("Win:" + winScore + 1);
+    init();
 }
-debugger;
-var numberGuess = generateNumber(19, 24)
-randomNumber.text(numberGuess);
-generateCristal();
+
+//Need to clean old cristals
+//Need to display new randon number - ok
+function init() {
+    generateCristal();
+}
+
+init();
