@@ -1,17 +1,93 @@
+h1{
+	font-family: 'Playball', cursive !important;
+	font-size: 80px !important;
+	color:#fff  !important;
+
+}
+
 #random-number {
-    background: #ccc;
-    height: 140px;
+    background: #666;
+    height: 90px;
     width: 200px;
     font-size: 50px;
     text-align: center;
     padding-top: 10px;
+    margin:0px auto;
+        margin-bottom: 20px;
+        color:#fff;
 }
 
 #user-score {
-    background: #999;
-    width: 240px;
+    background: #666;
     height: 90px;
+    width: 200px;
     font-size: 50px;
     text-align: center;
     color: #fff;
+        margin:0px auto;
+
+}
+
+body{
+  background: #ddd6f3;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #faaca8, #ddd6f3);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #faaca8, #ddd6f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.game{
+	text-align: center;
+}
+img#cristals{
+	padding-right: 30px;
+	-webkit-transition:  -webkit-transform 2s; /* Safari */
+    transition: transform 2s;
+    width: 130px;
+}
+
+img#cristals:hover{
+	cursor: pointer;
+ 
+    -webkit-transform: rotate(180deg); /* Safari */
+    transform: rotate(180deg);
+}
+
+.win-class{
+	border:10px solid red;
+}
+
+.normal-class{
+	border:none;
+}
+
+.instructions{
+	width: 350px;
+	text-align: center;
+	background: #fff;
+	color:#000;
+	border-radius: 25px;
+	padding:20px;
+	margin-top:10px;
+	margin-bottom: 20px;
+	border:5px solid #ccc;
+
+}
+#score{
+	display:inline-block;
+	float: right;
+	margin-top:10px;
+	font-size: 24px;
+}
+#win{
+	float: left;
+	padding-right: 20px;
+
+}
+
+#losses{
+	float: right;
+}
+
+#container-score{
+	font-size: 18px;
 }

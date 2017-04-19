@@ -16,6 +16,7 @@ var totalNumber;
 var count=0;
 var countWin=0;
 var countLoose = 0;
+var classCristal = 'cristals';
 
 
 // 2- Generate Random number to match between 19 - 120
@@ -28,7 +29,7 @@ function generateNumber(min, max) {
 function generateCristal() {
     
     for (i = 1; i < 5; i++) {
-        cristalImages = '<img src=' + imagestring + i + extension + ' value = ' + generateNumber(1, 12) + ' id = ' + i + '>';
+        cristalImages = '<img src=' + imagestring + i + extension + ' value = ' + generateNumber(1, 12) + ' id = ' + classCristal + '>';
         $('#cristals').append(cristalImages);
         console.log(cristalImages);
     };
@@ -73,17 +74,18 @@ function generateCristal() {
 
 function scoreGame(scorewin){
  
-	if(scorewin === true){
-
-		
+	if(scorewin === true){	
 	  countWin =+ countWin +1;
 	  win.text("Win: " + countWin);
 	  console.log("My win score: " +countWin);
+      $('.game').addClass("win-class");
+
 
 	}else if (scorewin === false){
 		countLoose =+ countLoose +1;
 		looses.text("Looses: " +countLoose);
 	    console.log("My looses score: " +countLoose);
+        $('.game').removeClass("win-class");
 	}
 }
 
@@ -105,6 +107,8 @@ function init() {
     randomNumber.text(numberGuess);
     console.log("NumberGuess init: " +numberGuess );
     console.log("totalNumber init: " +totalNumber);
+        //
+
 //gameScore();
 }
 
