@@ -1,7 +1,7 @@
 //1 - Get DOM Elements
 var randomNumber = $("#random-number");
 var win = $("#win");
-var looses = $("#looses");
+var looses = $("#losses");
 var userScore = $("#user-score");
 var imgCristalUrl = "./assets/images/cristal-0";
 var extension = '.png';
@@ -13,17 +13,20 @@ var result = [];
 var sum;
 var looseScore;
 var totalNumber;
+var count=0;
+var countWin=0;
+var countLoose = 0;
+
 
 // 2- Generate Random number to match between 19 - 120
 function generateNumber(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
-var numberGuess = generateNumber(19, 24)
-randomNumber.text(numberGuess);
+
 
 // 3 - Generate cristal
 function generateCristal() {
-    //debugger;
+    
     for (i = 1; i < 5; i++) {
         cristalImages = '<img src=' + imagestring + i + extension + ' value = ' + generateNumber(1, 12) + ' id = ' + i + '>';
         $('#cristals').append(cristalImages);
@@ -46,28 +49,52 @@ function generateCristal() {
 
             //6 - Create validation if user's click is equal to randon number
             if (totalNumber == numberGuess) {
-                console.log("win");
+               var scorewin;
+               	scorewin = true;
+               
+               	scoreGame(scorewin);
+               	
+
+                //gameScore(score);
                 //win.text("Win:" + winScore++);
                 resetGame();
 
                 //7-Call fucntion to reset the game and start a new one
 
-            } else {
-                console.log("Loose");
+            } else if (totalNumber > numberGuess) {
+             scorewin = false;
+             	scoreGame(scorewin);
+             resetGame();
+
             }
         }
     });
 };
+debugger;
+
+function scoreGame(scorewin){
+ 
+	if(scorewin === true){
+
+		
+	  countWin =+ countWin +1;
+	  win.text("Win" + countWin);
+	  console.log("My win score: " +countWin);
+
+	}else if (scorewin === false){
+		countLoose =+ countLoose -1;
+		looses.text("Looses" +countLoose);
+	    console.log("My looses score: " +countLoose);
+	}
+}
 
 function resetGame() {
     totalNumber = '';
     userScore.text(totalNumber);
     result = [];
-    var numberGuess = generateNumber(19, 24)
-    randomNumber.text(numberGuess);
     $('#cristals').text('');
     var winScore;
-    win.text("Win:" + winScore + 1);
+    randomNumber.text('');
     init();
 }
 
@@ -75,6 +102,11 @@ function resetGame() {
 //Need to display new randon number - ok
 function init() {
     generateCristal();
+    numberGuess = generateNumber(1, 15);
+    randomNumber.text(numberGuess);
+    console.log("NumberGuess init: " +numberGuess );
+    console.log("totalNumber init: " +totalNumber);
+//gameScore();
 }
 
 init();
