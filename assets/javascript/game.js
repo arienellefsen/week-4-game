@@ -70,7 +70,6 @@ function generateCristal() {
         }
     });
 };
-debugger;
 
 function scoreGame(scorewin){
  
@@ -78,12 +77,12 @@ function scoreGame(scorewin){
 
 		
 	  countWin =+ countWin +1;
-	  win.text("Win" + countWin);
+	  win.text("Win: " + countWin);
 	  console.log("My win score: " +countWin);
 
 	}else if (scorewin === false){
-		countLoose =+ countLoose -1;
-		looses.text("Looses" +countLoose);
+		countLoose =+ countLoose +1;
+		looses.text("Looses: " +countLoose);
 	    console.log("My looses score: " +countLoose);
 	}
 }
