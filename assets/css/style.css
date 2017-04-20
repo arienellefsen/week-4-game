@@ -1,14 +1,22 @@
-h1{
-	font-family: 'Playball', cursive !important;
-	font-size: 80px !important;
-	color:#fff  !important;
-	margin-top: 0px !important;
-	text-shadow: 0px 3px 0px #b2a98f,
-                 0px 4px 10px rgba(0,0,0,0.15),
-                 0px 14px 2px rgba(0,0,0,0.1),
-                 0px 24px 30px rgba(0,0,0,0.1);
-                 margin-bottom: 20px
+body {
+    background: #ddd6f3;
+    background: -webkit-linear-gradient(to right, #faaca8, #ddd6f3);
+    background: linear-gradient(to right, #faaca8, #ddd6f3);
+}
 
+h1 {
+    font-family: 'Playball', cursive !important;
+    font-size: 80px !important;
+    color: #fff !important;
+    margin-top: 0px !important;
+    text-shadow: 0px 3px 0px #b2a98f, 0px 4px 10px rgba(0, 0, 0, 0.15), 0px 14px 2px rgba(0, 0, 0, 0.1), 0px 24px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px
+}
+
+h2 {
+    font-family: 'Playball', cursive !important;
+    font-size: 50px !important;
+    color: #999;
 }
 
 #random-number {
@@ -18,11 +26,12 @@ h1{
     font-size: 50px;
     text-align: center;
     padding-top: 10px;
-    margin:0px auto;
-        margin-bottom: 20px;
-        color:#fff;
-        z-index: 10;
-        margin-top: 20px;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    color: #fff;
+    z-index: 10;
+    margin-top: 20px;
+    border-radius: 25px;
 }
 
 #user-score {
@@ -32,133 +41,129 @@ h1{
     font-size: 50px;
     text-align: center;
     color: #fff;
-        margin:0px auto;
-        z-index: 20;
-
+    margin: 0px auto;
+    z-index: 20;
+    border-radius: 25px;
+    padding-top: 15px;
+    margin-top: 40px;
 }
 
-body{
-  background: #ddd6f3;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #faaca8, #ddd6f3);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #faaca8, #ddd6f3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+#container-score p {
+    text-align: center;
+    color: #fff;
+    font-size: 34px;
+    font-family: 'Playball', cursive !important;
 }
 
-.game{
-	text-align: center;
+.game {
+    text-align: center;
 }
-img#cristals{
-	padding-right: 30px;
-	-webkit-transition:  -webkit-transform 2s; /* Safari */
+
+img#cristals {
+    padding-right: 30px;
+    -webkit-transition: -webkit-transform 2s;
     transition: transform 2s;
     width: 130px;
 }
 
-img#cristals:hover{
-	cursor: pointer;
- 
-    -webkit-transform: rotate(180deg); /* Safari */
+img#cristals:hover {
+    cursor: pointer;
+    -webkit-transform: rotate(180deg);
     transform: rotate(180deg);
 }
 
-.win-class{
-	 box-shadow: 0px 0px 5px #ffc02a; 
+.win-class {
+    box-shadow: 0px 0px 5px #ffc02a;
     -moz-box-shadow: 0px 0px 5px #ffc02a;
-    -webkit-box-shadow: 0px 0px 5px #ffc02a; 
-    -webkit-animation-name: winAnimation; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-box-shadow: 0px 0px 5px #ffc02a;
+    -webkit-animation-name: winAnimation;
+    -webkit-animation-duration: 4s;
     animation-name: winAnimation;
     animation-duration: 4s;
-    animation-timing-function: ease-in-out; 
-}
-
-
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes winAnimation {
-    0%   {box-shadow: 0px 0px 5px #ffc02a;}
-    100% {box-shadow: 0px 0px 25px #ffc02a;}
-}
-
-/* Standard syntax */
-@keyframes winAnimation {
-   0%   {box-shadow: 0px 0px 5px #ffc02a;}
-    100% {box-shadow: 0px 0px 25px #ffc02a;}
-}
-
-
-.normal-class{
-	border:none;
-}
-
-.instructions{
-	width: 750px;
-	text-align: center;
-	background: #fff;
-	color:#000;
-	border-radius: 25px;
-	padding:20px;
-	margin-top:10px;
-	margin-bottom: 20px;
-	border:5px solid #ccc;
-
-position: relative;
-top:40px;
-    z-index: 1000;
-    height: 560px;
-}
-#score{
-	display:inline-block;
-	float: right;
-	margin-top:10px;
-	font-size: 24px;
-}
-#win{
-	float: left;
-    padding-right: 0px;
-    background: #fff;
-    padding: 14px;
-    margin-right: 10px;
-    border-radius: 50px;
-    font-size: 20px;
-    width: 183px;
-
-}
-
-#losses{
-	float: left;
-    padding-right: 0px;
-    background: #fff;
-    padding: 14px;
-    margin-right: 10px;
-    border-radius: 50px;
-    font-size: 20px;
-    width: 183px;
-}
-
-#container-score{
-	font-size: 18px;
-}
-
-#win-msg{
-	display: none;
-	position: relative;
-    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
-    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
-    animation-name: example;
-    animation-duration: 4s;
     animation-timing-function: ease-in-out;
-    font-size: 0px;
-
 }
 
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes example {
-    0%   {font-size: 0px; left:0px; top:0px;}
-    100% {font-size: 34px; left:0px; top:0px;}
+.normal-class {
+    border: none;
 }
 
-/* Standard syntax */
-@keyframes example {
-    0%   {font-size: 0px; left:0px; top:0px;}
-    100% {font-size: 34px; left:0px; top:0px;}
+.instructions {
+    width: 850px;
+    text-align: center;
+    background: #fff;
+    color: #000;
+    border-radius: 25px;
+    padding: 40px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 15px solid #6e462c;
+    position: relative;
+    top: 40px;
+    z-index: 1000;
+    height: 100%;
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
+}
+
+.instructions p {
+    font-size: 20px;
+    text-align: left;
+    color: #999;
+}
+
+#button-start {
+    border: 10px solid #f48da8;
+    padding: 20px;
+    font-size: 40px;
+    font-family: 'Playball', cursive !important;
+    border-radius: 10px;
+    background: #f8df68;
+    margin-top: 20px;
+}
+
+#button-start:hover {
+    -webkit-transition: background 2s;
+    /* Safari */
+    transition: background 2s;
+    background: #f7d638;
+}
+
+#score {
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+#win {
+    float: left;
+    padding-right: 0px;
+    background: #fff;
+    padding: 14px;
+    margin-right: 10px;
+    border-radius: 50px;
+    font-size: 20px;
+    width: 183px;
+}
+
+#losses {
+    float: left;
+    padding-right: 0px;
+    background: #fff;
+    padding: 14px;
+    margin-right: 10px;
+    border-radius: 50px;
+    font-size: 20px;
+    width: 183px;
+}
+
+#container-score {
+    font-size: 18px;
+    margin-top: 40px;
+}
+
+.i_flash2 {
+    box-shadow: 0 0 75px #f8e51b;
+
 }
