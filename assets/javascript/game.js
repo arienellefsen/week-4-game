@@ -31,7 +31,6 @@ function generateCristal() {
     for (i = 1; i < 5; i++) {
         cristalImages = '<img src=' + imagestring + i + extension + ' value = ' + generateNumber(1, 12) + ' id = ' + classCristal + '>';
         $('#cristals').append(cristalImages);
-        console.log(cristalImages);
     };
 
     // 4 - Attached on click event on crystal images		
@@ -114,8 +113,8 @@ $(document).ready(function() {
         localStorage.setItem('popState', 'shown')
         $("#game-container").css("opacity", "0");
         $("#button-start").on("click", function() {
-            $(".instructions").fadeOut("slow");
-            $("#game-container").slideUp("slows").fadeIn("slow").delay(9000).css("opacity", "0.9");
+        $(".instructions").fadeOut("slow");
+        $("#game-container").slideUp("slows").fadeIn("slow").delay(9000).css("opacity", "0.9");
         });
     }
 
