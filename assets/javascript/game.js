@@ -17,6 +17,7 @@ var count=0;
 var countWin=0;
 var countLoose = 0;
 var classCristal = 'cristals';
+var winMsg = $("#win-msg");
 
 
 // 2- Generate Random number to match between 19 - 120
@@ -72,13 +73,31 @@ function generateCristal() {
     });
 };
 
+
+function showMessage(scorewin)
+{
+    if(scorewin === true){
+console.log("Show message");
+win.toggleClass("win-class", "win-class");
+winMsg.css("display","block");
+}
+else if (scorewin === false){
+looses.toggleClass("win-class", "win-class");
+winMsg.css("display","none");
+
+}
+}
+
+
 function scoreGame(scorewin){
  
 	if(scorewin === true){	
 	  countWin =+ countWin +1;
 	  win.text("Win: " + countWin);
 	  console.log("My win score: " +countWin);
-      $('.game').addClass("win-class");
+
+        showMessage(scorewin);
+
 
 
 	}else if (scorewin === false){
@@ -86,6 +105,8 @@ function scoreGame(scorewin){
 		looses.text("Looses: " +countLoose);
 	    console.log("My looses score: " +countLoose);
         $('.game').removeClass("win-class");
+
+
 	}
 }
 
@@ -99,17 +120,36 @@ function resetGame() {
     init();
 }
 
+
 //Need to clean old cristals
 //Need to display new randon number - ok
 function init() {
+   
     generateCristal();
     numberGuess = generateNumber(1, 15);
     randomNumber.text(numberGuess);
     console.log("NumberGuess init: " +numberGuess );
     console.log("totalNumber init: " +totalNumber);
-        //
-
 //gameScore();
 }
 
+$(document).ready(function() {
+    if(localStorage.getItem('popState') != 'shown'){
+        $(".instructions").slideDown("slow").delay(1000).fadeIn();
+        localStorage.setItem('popState','shown')
+        $("#game-container").css("opacity","0");
+        $("#button-start" ).on( "click", function() {
+  console.log( " msg init" );
+   $(".instructions").fadeOut("slow");
+    $("#game-container").slideUp("slow").fadeIn("slow").css("opacity","0.9").delay(5000);
+});
+
+
+    }
+
 init();
+
+
+});
+
+
