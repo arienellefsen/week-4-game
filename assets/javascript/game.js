@@ -132,6 +132,8 @@ function init() {
     console.log("totalNumber init: " +totalNumber);
 //gameScore();
 }
+debugger;
+
 
 $(document).ready(function() {
     if(localStorage.getItem('popState') != 'shown'){
@@ -141,9 +143,8 @@ $(document).ready(function() {
         $("#button-start" ).on( "click", function() {
   console.log( " msg init" );
    $(".instructions").fadeOut("slow");
-    $("#game-container").slideUp("slow").fadeIn("slow").css("opacity","0.9").delay(5000);
+    $("#game-container").slideUp("slows").fadeIn("slow").delay(9000).css("opacity","0.9");
 });
-
 
     }
 
